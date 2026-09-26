@@ -39,3 +39,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# media extraction binaries (auto-provisioned on npm install)
+/bin/
+
+# temporary and debug files
+*-watch.html
+*-player-script.js
+test_*
+test-*
+!test-e2e.mjs
