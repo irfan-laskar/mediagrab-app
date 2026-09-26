@@ -4,7 +4,7 @@ import { execFile } from 'child_process';
 import path from 'path';
 import fs from 'fs';
 import { validateAndSanitizeUrl } from './security';
-import { getYtDlpPath } from './binaries';
+import { getYtDlpPath, ensureYtDlpBinary } from './binaries';
 
 const ytDlpPath = getYtDlpPath();
 
@@ -12,20 +12,21 @@ const ytDlpPath = getYtDlpPath();
  * Resolve direct stream URL dynamically from YouTube/Instagram using the backend engine
  */
 export async function resolveLiveStreamUrl(url: string, type: 'video' | 'audio'): Promise<string | null> {
-  if (!fs.existsSync(ytDlpPath)) {
+  const resolvedYtDlp = await ensureYtDlpBinary();
+  if (!fs.existsSync(resolvedYtDlp)) {
     return null;
   }
 
   return new Promise((resolve) => {
     const formatArg = type === 'audio' ? 'bestaudio' : 'bestvideo[ext=mp4]/bestvideo/best';
     execFile(
-      ytDlpPath,
+      resolvedYtDlp,
       ['-g', '-f', formatArg, '--no-warnings', url],
       { timeout: 25000 },
       (error, stdout) => {
         if (error || !stdout) {
           execFile(
-            ytDlpPath,
+            resolvedYtDlp,
             ['-g', '--no-warnings', url],
             { timeout: 20000 },
             (err2, stdout2) => {

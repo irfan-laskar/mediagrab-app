@@ -4,6 +4,7 @@ import { extractMedia } from '@/lib/extractors';
 import { startDownloadJob } from '@/lib/downloadJobs';
 
 export const runtime = 'nodejs';
+export const maxDuration = 60;
 
 export async function POST(req: NextRequest) {
   try {

@@ -3,10 +3,7 @@ import path from 'path';
 import fs from 'fs';
 import os from 'os';
 import { sanitizeFilename } from './security';
-import { getYtDlpPath, getFfmpegDir } from './binaries';
-
-const ytDlpPath = getYtDlpPath();
-const ffmpegDir = getFfmpegDir();
+import { ensureYtDlpBinary, getFfmpegDir } from './binaries';
 
 export interface DownloadResult {
   filePath: string;
@@ -26,6 +23,9 @@ export async function downloadMediaWithEngine(
   mediaType: 'video' | 'audio',
   baseTitle: string = 'media'
 ): Promise<DownloadResult> {
+  const ytDlpPath = await ensureYtDlpBinary();
+  const ffmpegDir = getFfmpegDir();
+
   if (!fs.existsSync(ytDlpPath)) {
     throw new Error('Media extraction engine (yt-dlp) is not installed on the server.');
   }

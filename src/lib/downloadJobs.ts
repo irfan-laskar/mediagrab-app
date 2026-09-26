@@ -3,8 +3,8 @@ import path from 'path';
 import fs from 'fs';
 import os from 'os';
 import { sanitizeFilename } from './security';
+import { ensureYtDlpBinary, getFfmpegDir } from './binaries';
 import { DownloadResult } from './downloader';
-import { getYtDlpPath, getFfmpegDir } from './binaries';
 
 export interface DownloadProgress {
   jobId: string;
@@ -27,8 +27,6 @@ export interface DownloadProgress {
 }
 
 const activeJobs = new Map<string, DownloadProgress>();
-const ytDlpPath = getYtDlpPath();
-const ffmpegDir = getFfmpegDir();
 
 /**
  * Regex to parse yt-dlp newline progress
@@ -99,6 +97,9 @@ async function executeJob(
 ) {
   const job = activeJobs.get(jobId);
   if (!job) return;
+
+  const ytDlpPath = await ensureYtDlpBinary();
+  const ffmpegDir = getFfmpegDir();
 
   const tempTemplate = path.join(os.tmpdir(), `${jobId}_out.%(ext)s`);
 
@@ -223,6 +224,12 @@ async function executeJob(
 
     child.stderr.on('data', (data: Buffer) => {
       capturedStderr += data.toString();
+    });
+
+    child.on('error', (err: Error) => {
+      job.status = 'failed';
+      job.error = `Server execution error: ${err.message}`;
+      job.stage = 'Download failed.';
     });
 
     child.on('close', async (code: number) => {

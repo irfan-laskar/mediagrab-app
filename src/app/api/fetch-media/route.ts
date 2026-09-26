@@ -3,6 +3,7 @@ import { checkRateLimit, getClientIp, validateAndSanitizeUrl } from '@/lib/secur
 import { extractMedia } from '@/lib/extractors';
 
 export const runtime = 'nodejs';
+export const maxDuration = 60;
 
 export async function POST(req: NextRequest) {
   try {
