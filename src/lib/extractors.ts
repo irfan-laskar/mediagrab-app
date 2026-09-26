@@ -4,8 +4,9 @@ import { execFile } from 'child_process';
 import path from 'path';
 import fs from 'fs';
 import { validateAndSanitizeUrl } from './security';
+import { getYtDlpPath } from './binaries';
 
-const ytDlpPath = path.resolve(process.cwd(), 'bin', 'yt-dlp.exe');
+const ytDlpPath = getYtDlpPath();
 
 /**
  * Resolve direct stream URL dynamically from YouTube/Instagram using the backend engine

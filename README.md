@@ -3,6 +3,10 @@
 
 MediaGrab is a production-grade, responsive SaaS web application built with **Next.js (App Router)**, **TypeScript**, and **Tailwind CSS**. It allows users to convert and download publicly accessible videos and extract studio-quality audio from supported platforms (YouTube and Instagram), strictly subject to platform terms, fair use, copyright rules, and applicable laws.
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Firfan-laskar%2FMediagrab)
+&nbsp;&nbsp;
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/irfan-laskar/Mediagrab)
+
 ---
 
 ## 🌟 Key Features

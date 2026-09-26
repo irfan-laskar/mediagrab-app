@@ -4,6 +4,7 @@ import fs from 'fs';
 import os from 'os';
 import { sanitizeFilename } from './security';
 import { DownloadResult } from './downloader';
+import { getYtDlpPath, getFfmpegDir } from './binaries';
 
 export interface DownloadProgress {
   jobId: string;
@@ -26,8 +27,8 @@ export interface DownloadProgress {
 }
 
 const activeJobs = new Map<string, DownloadProgress>();
-const ytDlpPath = path.resolve(process.cwd(), 'bin', 'yt-dlp.exe');
-const ffmpegDir = path.resolve(process.cwd(), 'bin');
+const ytDlpPath = getYtDlpPath();
+const ffmpegDir = getFfmpegDir();
 
 /**
  * Regex to parse yt-dlp newline progress

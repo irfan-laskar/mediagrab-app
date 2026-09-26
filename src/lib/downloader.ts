@@ -3,9 +3,10 @@ import path from 'path';
 import fs from 'fs';
 import os from 'os';
 import { sanitizeFilename } from './security';
+import { getYtDlpPath, getFfmpegDir } from './binaries';
 
-const ytDlpPath = path.resolve(process.cwd(), 'bin', 'yt-dlp.exe');
-const ffmpegDir = path.resolve(process.cwd(), 'bin');
+const ytDlpPath = getYtDlpPath();
+const ffmpegDir = getFfmpegDir();
 
 export interface DownloadResult {
   filePath: string;
