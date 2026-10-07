@@ -8,24 +8,24 @@ export function FaqSection() {
 
   const faqs = [
     {
-      q: 'Is using MediaGrab legal?',
-      a: 'Yes. MediaGrab is designed exclusively for accessing and converting publicly available content for personal, non-commercial use, archiving, or fair use where permitted by law. You must respect creator copyright and the Terms of Service of the respective platforms. MediaGrab explicitly blocks circumvention of DRM, password protection, and private account boundaries.',
+      q: 'Is using KangarooYT legal?',
+      a: 'Yes. KangarooYT is designed exclusively for accessing and converting publicly available content for personal, non-commercial use, archiving, or fair use where permitted by law. You must respect creator copyright and the Terms of Service of the respective platforms. KangarooYT explicitly blocks circumvention of DRM, password protection, and private account boundaries.',
     },
     {
       q: 'Which video resolutions and audio formats can I download?',
-      a: 'For video, MediaGrab offers MP4 format in 1080p (Full HD), 720p (HD), 480p (SD), and 360p when provided by the source. For audio extraction, you can download MP3 files in 320 kbps (Studio), 256 kbps (High Quality), 192 kbps (Standard), or AAC-encoded M4A.',
+      a: 'For video, KangarooYT offers MP4 format in 1080p (Full HD), 720p (HD), 480p (SD), and 360p when provided by the source. For audio extraction, you can download MP3 files in 320 kbps (Studio), 256 kbps (High Quality), 192 kbps (Standard), or AAC-encoded M4A.',
     },
     {
       q: 'Why can’t I download private videos, age-gated media, or certain reels?',
-      a: 'MediaGrab strictly respects digital rights and user privacy. We do not attempt to bypass DRM (Digital Rights Management), login barriers, paywalls, or private account restrictions. If a video is marked private, age-restricted, or requires user credentials, we honestly inform you rather than feigning a download.',
+      a: 'KangarooYT strictly respects digital rights and user privacy. We do not attempt to bypass DRM (Digital Rights Management), login barriers, paywalls, or private account restrictions. If a video is marked private, age-restricted, or requires user credentials, we honestly inform you rather than feigning a download.',
     },
     {
-      q: 'Does MediaGrab store my downloaded media files or history on a server?',
+      q: 'Does KangarooYT store my downloaded media files or history on a server?',
       a: 'No. All media streams are piped in real-time directly between your browser and the content stream, and any temporary buffer data is immediately freed. Your download history is kept strictly on your local device using standard browser localStorage.',
     },
     {
-      q: 'Can I use MediaGrab on mobile devices (iOS / Android)?',
-      a: 'Yes! MediaGrab is fully responsive and optimized for mobile browsers including Safari on iOS and Chrome on Android. You can download MP4 videos or MP3 audio files directly into your device’s Downloads or Files app.',
+      q: 'Can I use KangarooYT on mobile devices (iOS / Android)?',
+      a: 'Yes! KangarooYT is fully responsive and optimized for mobile browsers including Safari on iOS and Chrome on Android. You can download MP4 videos or MP3 audio files directly into your device’s Downloads or Files app.',
     },
     {
       q: 'How does rate limiting protect the service?',

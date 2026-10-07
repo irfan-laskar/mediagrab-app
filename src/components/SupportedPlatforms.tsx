@@ -15,7 +15,7 @@ export function SupportedPlatforms() {
           Supported Platforms & Media Types
         </h2>
         <p className="text-slate-400 dark:text-slate-400 light:text-slate-600 text-base">
-          MediaGrab provides dedicated extraction pipelines for public video and audio across top media networks.
+          KangarooYT provides dedicated extraction pipelines for public video and audio across top media networks.
         </p>
       </div>
 

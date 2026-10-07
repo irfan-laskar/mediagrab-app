@@ -5,7 +5,7 @@ export const runtime = 'nodejs';
 export async function GET() {
   return NextResponse.json({
     status: 'healthy',
-    service: 'MediaGrab Core API',
+    service: 'KangarooYT Core API',
     version: '1.0.0',
     supportedPlatforms: ['youtube', 'instagram'],
     compliance: {

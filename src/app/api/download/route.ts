@@ -84,7 +84,7 @@ export async function GET(req: NextRequest) {
       if (targetDownloadUrl) {
         const upstreamRes = await fetch(targetDownloadUrl, {
           headers: {
-            'User-Agent': 'MediaGrab/1.0 (+https://mediagrab.app)',
+            'User-Agent': 'KangarooYT/1.0 (+https://kangarooyt.app)',
           },
         });
 

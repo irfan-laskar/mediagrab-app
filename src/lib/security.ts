@@ -228,7 +228,7 @@ export function validateAndSanitizeUrl(rawInput: string): UrlValidationResult {
       valid: false,
       sanitizedUrl: parsed.href,
       platform: 'unknown',
-      error: 'Unsupported platform. MediaGrab currently supports YouTube and Instagram URLs.',
+      error: 'Unsupported platform. KangarooYT currently supports YouTube and Instagram URLs.',
     };
   }
 

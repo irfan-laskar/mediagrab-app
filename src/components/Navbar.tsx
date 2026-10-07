@@ -16,20 +16,20 @@ export function Navbar({ darkMode, setDarkMode, historyCount, onOpenHistory }: N
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Brand Logo */}
         <a href="#" className="flex items-center gap-3 group">
-          <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-purple-600 via-indigo-600 to-blue-500 flex items-center justify-center shadow-[0_0_24px_rgba(124,58,237,0.4)] group-hover:scale-105 transition-transform duration-300">
-            <DownloadCloud className="w-6 h-6 text-white stroke-[2.5]" />
+          <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-amber-500 via-orange-500 to-purple-600 flex items-center justify-center shadow-[0_0_24px_rgba(245,158,11,0.4)] group-hover:scale-105 transition-transform duration-300 text-xl select-none">
+            🦘
           </div>
           <div className="flex flex-col">
             <div className="flex items-center gap-2">
               <span className="font-extrabold text-2xl tracking-tight bg-gradient-to-r from-white via-slate-100 to-slate-400 bg-clip-text text-transparent dark:from-white dark:to-slate-400 light:from-slate-900 light:to-slate-700">
-                Media<span className="text-purple-400">Grab</span>
+                Kangaroo<span className="text-amber-400">YT</span>
               </span>
-              <span className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">
+              <span className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">
                 PRO
               </span>
             </div>
             <span className="text-[11px] text-slate-400 dark:text-slate-400 light:text-slate-500 font-medium">
-              Lawful Media Extractor
+              High-Speed Media Extractor
             </span>
           </div>
         </a>

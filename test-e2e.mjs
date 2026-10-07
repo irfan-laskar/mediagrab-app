@@ -112,7 +112,7 @@ async function runTests() {
     const res = await fetch('http://localhost:3000');
     const html = await res.text();
     assert(res.status === 200, 'Frontend Homepage Render Status 200');
-    assert(html.includes('MediaGrab'), 'Frontend contains MediaGrab Brand Title');
+    assert(html.includes('KangarooYT') || html.includes('Kangaroo'), 'Frontend contains KangarooYT Brand Title');
     assert(html.includes('Paste video or reel URL here'), 'Frontend contains Large URL Input');
     assert(html.includes('Only download content you have permission to download'), 'Compliance Notice Present');
   } catch (e) {

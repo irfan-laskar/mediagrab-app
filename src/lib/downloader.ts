@@ -3,7 +3,7 @@ import path from 'path';
 import fs from 'fs';
 import os from 'os';
 import { sanitizeFilename } from './security';
-import { ensureYtDlpBinary, getFfmpegDir } from './binaries';
+import { ensureYtDlpBinary, getFfmpegDir, getStandardYtDlpArgs } from './binaries';
 
 export interface DownloadResult {
   filePath: string;
@@ -33,6 +33,8 @@ export async function downloadMediaWithEngine(
   const uniqueId = `${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
   const tempTemplate = path.join(os.tmpdir(), `mg_${uniqueId}_out.%(ext)s`);
 
+  const standardArgs = getStandardYtDlpArgs(url);
+
   let args: string[] = [];
   let extension = 'mp4';
   let contentType = 'video/mp4';
@@ -42,14 +44,14 @@ export async function downloadMediaWithEngine(
       extension = 'm4a';
       contentType = 'audio/mp4';
       args = [
+        ...standardArgs,
         '--ffmpeg-location',
         ffmpegDir,
         '-f',
-        'ba[ext=m4a]/ba/b/best',
+        'ba[ext=m4a]/ba/18/b/best',
         '-x',
         '--audio-format',
         'm4a',
-        '--no-warnings',
         '-o',
         tempTemplate,
         url,
@@ -62,16 +64,16 @@ export async function downloadMediaWithEngine(
       if (formatId === 'audio_192k') quality = '4';
 
       args = [
+        ...standardArgs,
         '--ffmpeg-location',
         ffmpegDir,
         '-f',
-        'ba/b/best',
+        'ba/18/b/best',
         '-x',
         '--audio-format',
         'mp3',
         '--audio-quality',
         quality,
-        '--no-warnings',
         '-o',
         tempTemplate,
         url,
@@ -87,16 +89,16 @@ export async function downloadMediaWithEngine(
     else if (formatId === 'video_480p') height = '480';
     else if (formatId === 'video_360p') height = '360';
 
-    const formatSelector = `bv*[height<=${height}][ext=mp4]+ba[ext=m4a]/bv*[height<=${height}]+ba/b[height<=${height}]/bv*+ba/b/best`;
+    const formatSelector = `bv*[height<=${height}][ext=mp4]+ba[ext=m4a]/bv*[height<=${height}]+ba/b[height<=${height}]/18/bv*+ba/b/best`;
 
     args = [
+      ...standardArgs,
       '--ffmpeg-location',
       ffmpegDir,
       '-f',
       formatSelector,
       '--merge-output-format',
       'mp4',
-      '--no-warnings',
       '-o',
       tempTemplate,
       url,

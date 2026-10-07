@@ -12,11 +12,11 @@ export function Footer() {
           {/* Logo & Tagline */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
             <div className="flex items-center gap-2.5 mb-2">
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-purple-600 via-indigo-600 to-blue-500 flex items-center justify-center text-white">
-                <DownloadCloud className="w-4 h-4 stroke-[2.5]" />
+              <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-amber-500 via-orange-500 to-purple-600 flex items-center justify-center text-sm shadow-[0_0_12px_rgba(245,158,11,0.3)] select-none">
+                🦘
               </div>
               <span className="font-extrabold text-xl tracking-tight text-white dark:text-white light:text-slate-900">
-                Media<span className="text-purple-400">Grab</span>
+                Kangaroo<span className="text-amber-400">YT</span>
               </span>
             </div>
             <p className="text-xs text-slate-400 dark:text-slate-400 light:text-slate-500 max-w-sm">
@@ -55,7 +55,7 @@ export function Footer() {
 
         {/* Bottom copyright and disclaimer */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-500 light:text-slate-400">
-          <p>© {currentYear} MediaGrab. All rights reserved.</p>
+          <p>© {currentYear} KangarooYT. All rights reserved.</p>
           <div className="flex items-center gap-1">
             <span>Designed with precision for modern creators & archivists</span>
           </div>

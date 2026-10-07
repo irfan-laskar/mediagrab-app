@@ -30,7 +30,7 @@ export function FeaturesSection() {
     },
     {
       title: 'Zero Server Retention',
-      desc: 'MediaGrab streams data directly to your client. No videos, audios, or personal identifiers are stored on our servers.',
+      desc: 'KangarooYT streams data directly to your client. No videos, audios, or personal identifiers are stored on our servers.',
       icon: Lock,
       gradient: 'from-emerald-500/20 to-teal-500/20',
       iconColor: 'text-emerald-400',

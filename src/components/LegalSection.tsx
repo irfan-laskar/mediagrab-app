@@ -27,14 +27,14 @@ export function LegalSection() {
               <CheckSquare className="w-4 h-4 text-purple-400 shrink-0 mt-0.5" />
               <p>
                 <strong className="text-white dark:text-white light:text-slate-900 font-semibold">User Responsibility:</strong>{' '}
-                MediaGrab is a technical tool designed for personal backup, offline research, and permitted fair use. Users are solely responsible for ensuring they possess the appropriate rights, licenses, or permission from copyright holders before saving media.
+                KangarooYT is a technical tool designed for personal backup, offline research, and permitted fair use. Users are solely responsible for ensuring they possess the appropriate rights, licenses, or permission from copyright holders before saving media.
               </p>
             </div>
             <div className="flex items-start gap-2.5">
               <CheckSquare className="w-4 h-4 text-purple-400 shrink-0 mt-0.5" />
               <p>
                 <strong className="text-white dark:text-white light:text-slate-900 font-semibold">No Circumvention of DRM:</strong>{' '}
-                MediaGrab strictly adheres to technological protection measures. We do not decrypt DRM-protected streams, paywalled content, private profiles, or password-protected files.
+                KangarooYT strictly adheres to technological protection measures. We do not decrypt DRM-protected streams, paywalled content, private profiles, or password-protected files.
               </p>
             </div>
           </div>
@@ -44,7 +44,7 @@ export function LegalSection() {
               <CheckSquare className="w-4 h-4 text-purple-400 shrink-0 mt-0.5" />
               <p>
                 <strong className="text-white dark:text-white light:text-slate-900 font-semibold">Zero Content Hosting:</strong>{' '}
-                MediaGrab does not host, mirror, or permanently store media files on its servers. All data transfers occur transiently as passthrough streams or client-side operations.
+                KangarooYT does not host, mirror, or permanently store media files on its servers. All data transfers occur transiently as passthrough streams or client-side operations.
               </p>
             </div>
             <div className="flex items-start gap-2.5">
@@ -60,7 +60,7 @@ export function LegalSection() {
         <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/[0.06] text-xs text-slate-400 dark:text-slate-400 light:text-slate-500 flex items-start gap-3">
           <AlertCircle className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
           <span>
-            Notice: MediaGrab is an independent software tool and is not affiliated, endorsed, or associated with Google LLC, YouTube, Meta Platforms, Inc., or Instagram. All trademarks and brand assets belong to their respective owners.
+            Notice: KangarooYT is an independent software tool and is not affiliated, endorsed, or associated with Google LLC, YouTube, Meta Platforms, Inc., or Instagram. All trademarks and brand assets belong to their respective owners.
           </span>
         </div>
       </div>

@@ -3,7 +3,7 @@ import path from 'path';
 import fs from 'fs';
 import os from 'os';
 import { sanitizeFilename } from './security';
-import { ensureYtDlpBinary, getFfmpegDir } from './binaries';
+import { ensureYtDlpBinary, getFfmpegDir, getStandardYtDlpArgs } from './binaries';
 import { DownloadResult } from './downloader';
 
 export interface DownloadProgress {
@@ -100,6 +100,7 @@ async function executeJob(
 
   const ytDlpPath = await ensureYtDlpBinary();
   const ffmpegDir = getFfmpegDir();
+  const standardArgs = getStandardYtDlpArgs(url);
 
   const tempTemplate = path.join(os.tmpdir(), `${jobId}_out.%(ext)s`);
 
@@ -112,15 +113,15 @@ async function executeJob(
       extension = 'm4a';
       contentType = 'audio/mp4';
       args = [
+        ...standardArgs,
         '--ffmpeg-location',
         ffmpegDir,
         '-f',
-        'ba[ext=m4a]/ba/b/best',
+        'ba[ext=m4a]/ba/18/b/best',
         '-x',
         '--audio-format',
         'm4a',
         '--newline',
-        '--no-warnings',
         '-o',
         tempTemplate,
         url,
@@ -133,17 +134,17 @@ async function executeJob(
       if (formatId === 'audio_192k') quality = '4';
 
       args = [
+        ...standardArgs,
         '--ffmpeg-location',
         ffmpegDir,
         '-f',
-        'ba/b/best',
+        'ba/18/b/best',
         '-x',
         '--audio-format',
         'mp3',
         '--audio-quality',
         quality,
         '--newline',
-        '--no-warnings',
         '-o',
         tempTemplate,
         url,
@@ -159,9 +160,10 @@ async function executeJob(
     else if (formatId === 'video_480p') height = '480';
     else if (formatId === 'video_360p') height = '360';
 
-    const formatSelector = `bv*[height<=${height}][ext=mp4]+ba[ext=m4a]/bv*[height<=${height}]+ba/b[height<=${height}]/bv*+ba/b/best`;
+    const formatSelector = `bv*[height<=${height}][ext=mp4]+ba[ext=m4a]/bv*[height<=${height}]+ba/b[height<=${height}]/18/bv*+ba/b/best`;
 
     args = [
+      ...standardArgs,
       '--ffmpeg-location',
       ffmpegDir,
       '-f',
@@ -169,7 +171,6 @@ async function executeJob(
       '--merge-output-format',
       'mp4',
       '--newline',
-      '--no-warnings',
       '-o',
       tempTemplate,
       url,

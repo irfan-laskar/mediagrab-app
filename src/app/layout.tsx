@@ -8,23 +8,24 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'MediaGrab - Modern Lawful Video & Audio Downloader',
+  title: 'KangarooYT - High-Speed Video & Audio Downloader',
   description:
-    'Download and convert publicly accessible videos and audio from YouTube and Instagram in high definition MP4 (1080p, 720p) and studio MP3 (320kbps). Fast, private, and fully compliant.',
+    'Download and convert publicly accessible videos and audio from YouTube and Instagram in high definition MP4 (1080p, 720p) and studio MP3 (320kbps). Fast, private, and powered by KangarooYT.',
   keywords: [
+    'kangarooyt',
+    'kangaroo yt',
     'media downloader',
     'youtube video downloader',
     'youtube audio extractor',
     'instagram reel downloader',
     'mp4 converter',
     'mp3 extractor',
-    'lawful media converter',
   ],
-  authors: [{ name: 'MediaGrab Team' }],
+  authors: [{ name: 'KangarooYT Team' }],
   openGraph: {
-    title: 'MediaGrab - Modern Lawful Video & Audio Downloader',
+    title: 'KangarooYT - High-Speed Video & Audio Downloader',
     description:
-      'Download and convert publicly accessible videos and audio from YouTube and Instagram in high definition MP4 and MP3.',
+      'Download and convert publicly accessible videos and audio from YouTube and Instagram in high definition MP4 and MP3 with KangarooYT.',
     type: 'website',
   },
 };

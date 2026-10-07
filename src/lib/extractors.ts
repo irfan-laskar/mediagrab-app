@@ -4,7 +4,7 @@ import { execFile } from 'child_process';
 import path from 'path';
 import fs from 'fs';
 import { validateAndSanitizeUrl } from './security';
-import { getYtDlpPath, ensureYtDlpBinary } from './binaries';
+import { getYtDlpPath, ensureYtDlpBinary, getStandardYtDlpArgs } from './binaries';
 
 const ytDlpPath = getYtDlpPath();
 
@@ -17,17 +17,19 @@ export async function resolveLiveStreamUrl(url: string, type: 'video' | 'audio')
     return null;
   }
 
+  const standardArgs = getStandardYtDlpArgs(url);
+
   return new Promise((resolve) => {
-    const formatArg = type === 'audio' ? 'bestaudio' : 'bestvideo[ext=mp4]/bestvideo/best';
+    const formatArg = type === 'audio' ? 'bestaudio/ba/18/b/best' : 'bestvideo[ext=mp4]/bestvideo/18/b/best';
     execFile(
       resolvedYtDlp,
-      ['-g', '-f', formatArg, '--no-warnings', url],
+      ['-g', '-f', formatArg, ...standardArgs, url],
       { timeout: 25000 },
       (error, stdout) => {
         if (error || !stdout) {
           execFile(
             resolvedYtDlp,
-            ['-g', '--no-warnings', url],
+            ['-g', ...standardArgs, url],
             { timeout: 20000 },
             (err2, stdout2) => {
               if (err2 || !stdout2) {

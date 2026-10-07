@@ -170,3 +170,30 @@ export function getFfmpegDir(): string {
 
   return path.resolve(process.cwd(), 'bin');
 }
+
+/**
+ * Resolves standard yt-dlp arguments for robust platform access, avoiding datacenter IP bot challenges
+ */
+export function getStandardYtDlpArgs(url: string): string[] {
+  const args: string[] = ['--no-warnings', '--no-check-certificates'];
+
+  if (url.includes('youtube.com') || url.includes('youtu.be')) {
+    args.push('--extractor-args', 'youtube:player_client=android,ios,mweb');
+  }
+
+  // Check if cookies are supplied via environment variable (e.g. YOUTUBE_COOKIES on Vercel)
+  const cookiesEnv = process.env.YOUTUBE_COOKIES;
+  if (cookiesEnv) {
+    const cookiesPath = path.join(os.tmpdir(), 'yt_cookies.txt');
+    try {
+      if (!fs.existsSync(cookiesPath) || fs.statSync(cookiesPath).size === 0) {
+        fs.writeFileSync(cookiesPath, cookiesEnv, 'utf-8');
+      }
+      args.push('--cookies', cookiesPath);
+    } catch (e) {
+      console.warn('Failed to write YOUTUBE_COOKIES to /tmp:', e);
+    }
+  }
+
+  return args;
+}

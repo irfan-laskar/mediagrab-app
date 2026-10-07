@@ -15,7 +15,7 @@ export function HowItWorks() {
     {
       step: '02',
       title: 'Analyze & Choose Format',
-      desc: 'Paste the link into MediaGrab. Our engine detects the platform, parses metadata, and lets you choose between MP4 video resolutions or MP3 audio bitrates.',
+      desc: 'Paste the link into KangarooYT. Our engine detects the platform, parses metadata, and lets you choose between MP4 video resolutions or MP3 audio bitrates.',
       icon: Sliders,
       color: 'from-purple-500 to-pink-600',
     },
@@ -36,7 +36,7 @@ export function HowItWorks() {
           <span>Simple 3-Step Workflow</span>
         </div>
         <h2 className="text-3xl sm:text-4xl font-extrabold text-white dark:text-white light:text-slate-900 tracking-tight mb-4">
-          How MediaGrab Works
+          How KangarooYT Works
         </h2>
         <p className="text-slate-400 dark:text-slate-400 light:text-slate-600 text-base">
           Engineered for effortless media conversion and lawful download streaming in seconds.
